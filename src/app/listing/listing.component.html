@@ -28,7 +28,7 @@
     </div>
 
     <div *ngFor="let emp of emps | search: field">
-        <app-card [emp]="emp"></app-card>
+        <app-card [emp]="emp" class="col-sm-4"></app-card>
     </div>
 
     <div class="alert alert-danger" *ngIf="error">{{ error }}</div>
