@@ -5,5 +5,6 @@ export interface EMP {
     "Pno": string,
     "Email": string,
     "Title": string,
-    "Dept": string
+    "Dept": string,
+    "showDetails": boolean
 }
