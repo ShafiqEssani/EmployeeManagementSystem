@@ -4,73 +4,111 @@
   </div>
 
   <div class="panel-body">
-    <form #form="ngForm" (ngSubmit)="fbPostData(form.value)">
-      <div class="form-group col-sm-6">
-        
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Firstname"
-          name="fname"
-          ngModel
-          required>
+    <form #form="ngForm" (ngSubmit)="fbPostData(form.value)" novalidate>
+      <div class="row">
+        <div class="form-group col-sm-6 mid">
+
+          <input type="text" #nameRef="ngModel" minlength="3" required class="form-control" placeholder="Firstname"
+            name="fname" ngModel>
+
+          <div *ngIf="nameRef.errors && (nameRef.dirty || nameRef.touched)" class="alert alert-danger">
+            <div [hidden]="!nameRef.errors.required">
+              FirstName is required
+            </div>
+            <div [hidden]="!nameRef.errors.minlength">
+              Atleast 3 characters
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="form-group col-sm-6">
-        
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Lastname"
-          name="lname"
-          ngModel
-          required>
+      <div class="row">
+
+        <div class="form-group col-sm-6 mid">
+
+          <input type="text" #lRef="ngModel" minlength="3" required class="form-control" placeholder="Lastname" name="lname"
+            ngModel>
+
+          <div *ngIf="lRef.errors && (lRef.dirty || lRef.touched)" class="alert alert-danger">
+            <div [hidden]="!lRef.errors.required">
+              LastName is required
+            </div>
+            <div [hidden]="!lRef.errors.minlength">
+              Atleast 3 characters
+            </div>
+            
+          </div>
+        </div>
       </div>
-      <div class="form-group col-sm-6">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Phone Number"
-          name="Pno"
-          ngModel
-          required>
+      <div class="row">
+        <div class="form-group col-sm-6 mid">
+          <input type="text" #numRef="ngModel" minlength="11" maxlength="11" required class="form-control" placeholder="Phone Number"
+            name="Pno" ngModel>
+
+          <div *ngIf="numRef.errors && (numRef.dirty || numRef.touched)" class="alert alert-danger">
+            <div [hidden]="!numRef.errors.required">
+              Phone Number is required
+            </div>
+            <div [hidden]="!numRef.errors.minlength">
+              Invalid Number
+            </div>
+            <div [hidden]="!numRef.errors.maxlength">
+              Max 11 characters
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="form-group col-sm-6">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Email"
-          name="Email"
-          ngModel
-          required>
+      <div class="row">
+        <div class="form-group col-sm-6 mid">
+          <input type="text" #eRef="ngModel" minlength="5" required class="form-control" placeholder="Email" name="Email" ngModel>
+
+          <div *ngIf="eRef.errors && (eRef.dirty || eRef.touched)" class="alert alert-danger">
+            <div [hidden]="!eRef.errors.required">
+              Email is required
+            </div>
+            <div [hidden]="!eRef.errors.minlength">
+              Invalid Email
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="form-group col-sm-6">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Title"
-          name="Title"
-          ngModel
-          required>
+      <div class="row">
+        <div class="form-group col-sm-6 mid">
+          <input type="text" #tRef="ngModel" minlength="5" required class="form-control" placeholder="Title" name="Title" ngModel>
+
+          <div *ngIf="tRef.errors && (tRef.dirty || tRef.touched)" class="alert alert-danger">
+            <div [hidden]="!tRef.errors.required">
+              Title is required
+            </div>
+            <div [hidden]="!tRef.errors.minlength">
+              Atleast 5 characters
+            </div>
+          </div>
+        </div>
+
       </div>
-      <div class="form-group col-sm-6">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Dept"
-          name="Dept"
-          ngModel
-          required>
+      <div class="row">
+        <div class="form-group col-sm-6 mid">
+          <input type="text" #dRef="ngModel" minlength="2" required class="form-control" placeholder="Dept" name="Dept" ngModel>
+
+          <div *ngIf="dRef.errors && (dRef.dirty || dRef.touched)" class="alert alert-danger">
+            <div [hidden]="!dRef.errors.required">
+              Department is required
+            </div>
+            <div [hidden]="!dRef.errors.minlength">
+              Atleast 2 characters
+            </div>
+          </div>
+
+        </div>
+
       </div>
 
       <div class="form-group col-sm-12">
-        <button
-          class="btn btn-primary listing-button"
-          type="submit"
-          ng-show="addEmp">
+        <button [disabled]="!form.form.valid" class="btn btn-primary listing-button" type="submit" ng-show="addEmp">
             Add
         </button>
       </div>
-      
+
     </form>
 
   </div>
