@@ -14,13 +14,13 @@ export class FormComponent implements OnInit {
 
   constructor(public empService: EmpService) { }
 
-  ngOnInit() { 
+  ngOnInit() {
   }
 
-  onEmpSubmit(data): void {
-    this.empService.addEmp(data);
-    this.form.reset();
-  }
+  // onEmpSubmit(data): void {
+  //   this.empService.addEmp(data);
+  //   this.form.reset();
+  // }
 
   fbPostData(data){
      firebase.database().ref('/').push({
@@ -29,7 +29,9 @@ export class FormComponent implements OnInit {
        Pno: data.Pno,
        Email: data.Email,
        Title: data.Title,
-       Dept: data.Dept
+       Dept: data.Dept,      
     });
+  this.form.reset();
   }
+  
 }
