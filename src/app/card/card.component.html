@@ -1,0 +1,44 @@
+<div class="thumbnail">
+  <div class="caption">
+    <div *ngIf="!emp.showDetails">
+      <h3>
+        <span class="label label-primary">
+            {{ emp.fname }} {{ emp.lname }}
+      </span>
+      </h3>
+    </div>
+
+    <button class="btn btn-sm btn-success" *ngIf="!emp.showDetails" (click)="emp.showDetails = !emp.showDetails">
+      Details
+  </button>
+
+
+    <div *ngIf="emp.showDetails">
+      <div class="Details">
+        <h3>
+          <span class="label label-primary">
+          {{ emp.Pno }} 
+          </span>
+
+          <span class="label label-primary">
+          {{ emp.Email}}
+          </span>
+
+          <span class="label label-primary">
+          {{ emp.Title}}
+          </span>
+
+          <span class="label label-primary">
+          {{ emp.Dept}} 
+          </span>
+        </h3>
+
+        <hr>
+
+        <button class="btn btn-sm btn-danger" (click)="emp.showDetails = !emp.showDetails">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>EMS3</title>
@@ -8,7 +9,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
+
 <body>
   <app-root></app-root>
+
+  <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyB7sI5aD1WHHC48Y9eB5t-vIokrWSNagqw",
+      authDomain: "ems-a2.firebaseapp.com",
+      databaseURL: "https://ems-a2.firebaseio.com",
+      projectId: "ems-a2",
+      storageBucket: "ems-a2.appspot.com",
+      messagingSenderId: "414392270504"
+    };
+    firebase.initializeApp(config);
+
+  </script>
 </body>
+
 </html>

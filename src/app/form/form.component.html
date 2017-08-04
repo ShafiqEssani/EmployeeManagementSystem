@@ -1,0 +1,77 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4> Form </h4>
+  </div>
+
+  <div class="panel-body">
+    <form #form="ngForm" (ngSubmit)="fbPostData(form.value)">
+      <div class="form-group col-sm-6">
+        
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Firstname"
+          name="fname"
+          ngModel
+          required>
+      </div>
+      <div class="form-group col-sm-6">
+        
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Lastname"
+          name="lname"
+          ngModel
+          required>
+      </div>
+      <div class="form-group col-sm-6">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Phone Number"
+          name="Pno"
+          ngModel
+          required>
+      </div>
+      <div class="form-group col-sm-6">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Email"
+          name="Email"
+          ngModel
+          required>
+      </div>
+      <div class="form-group col-sm-6">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Title"
+          name="Title"
+          ngModel
+          required>
+      </div>
+      <div class="form-group col-sm-6">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Dept"
+          name="Dept"
+          ngModel
+          required>
+      </div>
+
+      <div class="form-group col-sm-12">
+        <button
+          class="btn btn-primary listing-button"
+          type="submit"
+          ng-show="addEmp">
+            Add
+        </button>
+      </div>
+      
+    </form>
+
+  </div>
+</div>
