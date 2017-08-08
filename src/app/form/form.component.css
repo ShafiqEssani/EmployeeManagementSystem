@@ -16,3 +16,15 @@ button.listing-button {
     margin: 0px auto;
     display: table;
 }
+input[type=file] {
+    display: block;
+    margin: 0px auto;
+    border-left:0px solid green!important;
+}
+span.span-diff {
+
+    margin: 0px auto;
+    display: table;
+    position: relative;
+    left: -10%;
+}

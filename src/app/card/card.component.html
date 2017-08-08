@@ -1,4 +1,5 @@
 <div class="thumbnail">
+  <img src="{{imageUrl}}" class="img-responsive">
   <div class="caption">
     <div *ngIf="!emp.showDetails">
       <h3>
@@ -8,12 +9,8 @@
       </h3>
     </div>
 
-    <button class="btn btn-sm btn-success" *ngIf="!emp.showDetails" (click)="emp.showDetails = !emp.showDetails">
+  <button [routerLink]="['/card/'+emp.$key]" class="btn btn-sm btn-success" *ngIf="!emp.showDetails" (click)="emp.showDetails = !emp.showDetails">
       Details
-  </button>
-
-  <button class="btn btn-sm btn-danger" type="submit" ng-hide="delete">
-          Delete
   </button>
 
     <div *ngIf="emp.showDetails">
@@ -38,9 +35,19 @@
 
         <hr>
 
-        <button class="btn btn-sm btn-danger" (click)="emp.showDetails = !emp.showDetails">
+        <button  class="btn btn-sm btn-success">
+          Edit
+        </button>
+
+        <button (click)="onDeleteClick()" class="btn btn-sm btn-danger">
+          Delete
+        </button>
+        
+        <button [routerLink]="['/']" class="btn btn-sm btn-danger" (click)="emp.showDetails = !emp.showDetails">
           Close
         </button>
+
+
       </div>
     </div>
   </div>

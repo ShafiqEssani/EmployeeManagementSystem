@@ -12,7 +12,7 @@ declare var firebase: any;
 export class ListingComponent implements OnInit {
 
   error: string;
-  emps: Array<any>  = [];
+  //emps: Array<any>  = [];
   field: string = '';
   // fields: Array<string> = [
   //   'id',
@@ -23,9 +23,11 @@ export class ListingComponent implements OnInit {
   //   'Title',
   //   'Dept'
   // ];
+  
+  emps: any;
 
   constructor(
-    private http: Http,
+    //private http: Http,
     private empService: EmpService
   ) { }
 
@@ -40,14 +42,22 @@ export class ListingComponent implements OnInit {
     //   .subscribe(
     //     data => this.emps = [data, ...this.emps]
     //   );
-    this.fbGetData();
+
+    this.empService.getAllEmps()
+      .subscribe( data => {
+        this.emps = data,
+        error => this.error = error.statusText
+      });
+      console.log(this.emps);
+
+    //this.fbGetData();
    }
  
-   fbGetData(){
-    firebase.database().ref('/').on('child_added', ( snapshot ) => {
-       this.emps.push(snapshot.val());
-       console.log(snapshot.val());
-     })
-  }
+  //  fbGetData(){
+  //   firebase.database().ref('/').on('child_added', ( snapshot ) => {
+  //      this.emps.push(snapshot.val());
+  //      console.log(snapshot.val());
+  //    })
+  // }
 
 }

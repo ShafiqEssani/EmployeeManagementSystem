@@ -1,5 +1,7 @@
 export interface EMP {
-    
+
+    $key?: string,
+    path?: any,
     "Firstname": string,
     "Lastname": string,
     "Pno": string,
@@ -7,4 +9,5 @@ export interface EMP {
     "Title": string,
     "Dept": string,
     "showDetails": boolean
+
 }
