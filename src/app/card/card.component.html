@@ -4,12 +4,12 @@
     <div *ngIf="!emp.showDetails">
       <h3>
         <span class="label label-primary">
-            {{ emp.fname }} {{ emp.lname }}
+            {{ emp.Firstname }} {{ emp.Lastname }}
       </span>
       </h3>
     </div>
 
-  <button [routerLink]="['/card/'+emp.$key]" class="btn btn-sm btn-success" *ngIf="!emp.showDetails" (click)="emp.showDetails = !emp.showDetails">
+  <button class="btn btn-sm btn-success" *ngIf="!emp.showDetails" (click)="emp.showDetails = !emp.showDetails">
       Details
   </button>
 
@@ -35,11 +35,11 @@
 
         <hr>
 
-        <button  class="btn btn-sm btn-success">
+        <button [id]="emp.$key" (click)="onEditClick($event)" class="btn btn-sm btn-success">
           Edit
         </button>
 
-        <button (click)="onDeleteClick()" class="btn btn-sm btn-danger">
+        <button [id]="emp.$key" (click)="onDeleteClick($event)" class="btn btn-sm btn-danger">
           Delete
         </button>
         
@@ -52,3 +52,4 @@
     </div>
   </div>
 </div>
+

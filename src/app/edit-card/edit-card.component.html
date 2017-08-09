@@ -1,10 +1,17 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <a class="navbar-brand">Employee Management System</a>
+  </div>
+</nav>
+
+
 <div class="panel panel-default">
   <div class="panel-heading">
     <h4> Form </h4>
   </div>
 
   <div class="panel-body">
-    <form #form="ngForm" (ngSubmit)="onEmpSubmit(form.value)" novalidate>
+    <form #form="ngForm" (ngSubmit)="onUpdateSubmit(form.value)" novalidate>
       <div class="row">
         <div class="form-group col-sm-6 mid">
 
@@ -101,18 +108,18 @@
 
       </div>
 
-      <div class="form-group diff-1">
+      <!-- <div class="form-group diff-1">
 
         <span class="span-diff">
               Image: 
         </span>
         <input id="image" class="btn-diff" name="image" [(ngModel)]="image" type="file" >
         
-      </div>
+      </div> -->
 
       <div class="form-group col-sm-12">
         <button [disabled]="!form.form.valid" class="btn btn-primary listing-button" type="submit" ng-show="addEmp">
-            Add
+            Update
         </button>
       </div>
 

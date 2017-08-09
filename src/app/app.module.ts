@@ -13,16 +13,16 @@ import { FormComponent } from './form/form.component';
 import { CardComponent } from './card/card.component';
 import { SearchPipe } from './pipes/search.pipe';
 import { EmpService } from './services/emp.service';
-import { DetailsComponent } from './details/details.component';
+import { EditCardComponent } from './edit-card/edit-card.component';
+
 
 const appRoutes: Routes = [
-  {path: '', component: AppComponent},
-  {path: 'listings', component: ListingComponent},
-  //{path: 'add-card', component: AddCardComponent},
-  {path: 'card/:id', component: CardComponent},
-  {path: 'details/:id', component: DetailsComponent}
-
-  //{path: 'edit-card/:id', component: EditCardComponent}  
+  // {path: '', component: AppComponent},
+ //{path: '', component: ListingComponent},
+ 
+  // //{path: 'add-card', component: AddCardComponent},
+  // {path: 'card/:id', component: CardComponent},
+  {path: 'edit-card', component: EditCardComponent} 
 ]
 
 @NgModule({
@@ -32,7 +32,7 @@ const appRoutes: Routes = [
     FormComponent,
     CardComponent,
     SearchPipe,
-    DetailsComponent
+    EditCardComponent
   ],
   imports: [
     BrowserModule,

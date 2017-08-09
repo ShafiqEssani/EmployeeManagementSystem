@@ -12,14 +12,14 @@ import { EMP } from '../emp';
 export class EmpService {
 
   emps: FirebaseListObservable<any[]>;
-  //card: FirebaseObjectObservable<EMP>;
+  emp: FirebaseObjectObservable<EMP>;
   folder: any;
 
   //public newEmp = new Subject<any>();
 
   constructor(private db: AngularFireDatabase) {
     this.folder = 'images';
-    this.emps = this.db.list('/') as FirebaseListObservable<EMP[]>;
+    this.emps = this.db.list('/listings') as FirebaseListObservable<EMP[]>;
     
    }
 
@@ -29,6 +29,10 @@ export class EmpService {
     return this.emps;
   }
 
+  getCardDetails(id) {
+    this.emp = this.db.object('/listings/'+id) as FirebaseObjectObservable<EMP>;
+    return this.emp;
+  }
 
 
   addEmp(data){
@@ -47,6 +51,10 @@ export class EmpService {
 
   deleteCard(id){
     return this.emps.remove(id);
+  }
+
+  editCard(id, EMP) {
+    return this.emps.update(id, EMP);
   }
 
 }

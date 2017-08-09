@@ -14,8 +14,14 @@ declare var firebase: any;
 export class CardComponent implements OnInit {
 
   @Input('emp') emp: EMP;
-  id: any;
+  //id: any;
   imageUrl: any;
+  Firstname: any;
+  Lastname: any;
+  Email: any;
+  Dept: any;
+  Title: any;
+  Pno: any;
 
   constructor(
     private empService: EmpService,
@@ -26,13 +32,9 @@ export class CardComponent implements OnInit {
   ngOnInit() {
     //Getting ths ID
     
-    // this.id = this.route.snapshot.params['id'];
-    // console.log(this.id);
-    
-    //console.log(firebase.database().ref('/').snapshot.val());
-
-    //console.log(this.route.snapshot.params);
-    
+    //this.id = this.route.snapshot.params['id'];
+    //console.log(this.id);
+  
     //this.id = this.emp.$key;
     //console.log(this.id);
 
@@ -49,14 +51,43 @@ export class CardComponent implements OnInit {
 
   }
 
-  onDeleteClick(){
-    
-    this.empService.deleteCard(this.id);
+  onDeleteClick(e){
+    var target = e.target || e.srcElement || e.currentTarget;
+    console.log(target.attributes.id.nodeValue);
+    this.empService.deleteCard(target.attributes.id.nodeValue);
   }
 
-  onDetails(){
-    
-  
-  }
+  onEditClick(e){
 
+    var target = e.target || e.srcElement || e.currentTarget;
+    var id = (target.attributes.id.nodeValue);
+
+    this.router.navigate(['/edit-card']);
+
+    this.empService.getCardDetails(id)
+      .subscribe( data => {
+        this.Firstname = data.Firstname;
+        this.Lastname = data.Lastname;
+        this.Pno = data.Pno;
+        this.Email = data.Email;
+        this.Title = data.Title;
+        this.Dept = data.Dept;
+      });
+
+    let card = {
+      Firstname: this.Firstname,
+      Lastname: this.Lastname,
+      Pno: this.Pno,
+      Email: this.Email,
+      Title: this.Title,
+      Dept: this.Dept
+    }
+
+    console.log(card);
+    
+    //this.empService.
+
+    //this.empService.editCard(target.attributes.id.nodeValue, card);
+
+  }
 }
