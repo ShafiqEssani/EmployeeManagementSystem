@@ -4,7 +4,7 @@ export interface EMP {
     path?: any,
     "Firstname": string,
     "Lastname": string,
-    "Pno": string,
+    "PhoneNumber": string,
     "Email": string,
     "Title": string,
     "Dept": string,

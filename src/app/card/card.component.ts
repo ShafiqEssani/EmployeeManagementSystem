@@ -21,7 +21,7 @@ export class CardComponent implements OnInit {
   Email: any;
   Dept: any;
   Title: any;
-  Pno: any;
+  PhoneNumber: any;
 
   constructor(
     private empService: EmpService,
@@ -68,7 +68,7 @@ export class CardComponent implements OnInit {
       .subscribe( data => {
         this.Firstname = data.Firstname;
         this.Lastname = data.Lastname;
-        this.Pno = data.Pno;
+        this.PhoneNumber = data.PhoneNumber;
         this.Email = data.Email;
         this.Title = data.Title;
         this.Dept = data.Dept;
@@ -77,7 +77,7 @@ export class CardComponent implements OnInit {
     let card = {
       Firstname: this.Firstname,
       Lastname: this.Lastname,
-      Pno: this.Pno,
+      PhoneNumber: this.PhoneNumber,
       Email: this.Email,
       Title: this.Title,
       Dept: this.Dept

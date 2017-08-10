@@ -26,7 +26,7 @@ export class FormComponent implements OnInit {
   //    firebase.database().ref('/').push({
   //      fname: data.fname,
   //      lname: data.lname,
-  //      Pno: data.Pno,
+  //      PhoneNumber: data.PhoneNumber,
   //      Email: data.Email,
   //      Title: data.Title,
   //      Dept: data.Dept,      

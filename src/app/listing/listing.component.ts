@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EmpService } from './../services/emp.service';
+import { UtilService } from './../services/util.service';
 import 'rxjs/add/operator/map';
 import { Http } from '@angular/http';
 declare var firebase: any;
@@ -12,23 +13,26 @@ declare var firebase: any;
 export class ListingComponent implements OnInit {
 
   error: string;
-  //emps: Array<any>  = [];
+  emps: Array<any>  = [];
   field: string = '';
-  // fields: Array<string> = [
-  //   'id',
-  //   'fname',
-  //   'lname',
-  //   'Pno',
-  //   'Email',
-  //   'Title',
-  //   'Dept'
-  // ];
   
-  emps: any;
+  sortFeild: string = 'Firstname';
+  sortDirection: string = 'asc';
+  sortFields: Array<string> = [
+    'Firstname',
+    'Lastname',
+    'PhoneNumber',
+    'Email',
+    'Title',
+    'Dept'
+  ];
+  
+  //emps: any;
 
   constructor(
     //private http: Http,
-    private empService: EmpService
+    private empService: EmpService,
+    private utilService: UtilService
   ) { }
 
   ngOnInit() {

@@ -1,3 +1,6 @@
+.invalid {
+    border-bottom-color: red !important;
+}
 input.ng-invalid{
     border-left: 5px
     solid red;
@@ -28,3 +31,4 @@ span.span-diff {
     position: relative;
     left: -10%;
 }
+

@@ -3,22 +3,42 @@
     <div class="col-sm-12">
         <div class="panel panel-default">
             <div class="panel-body">
-                
+
                 <div class="col-sm-4">
-                    <input
-                    id="search"
-                    type="text"
-                    class="form-control"
-                    placeholder="Search"
-                    [(ngModel)]="field">
+                    <input id="search" type="text" class="form-control" placeholder="Search" [(ngModel)]="field">
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="sort-field">Sort By</label>
+                    <select class="form-control" name="sort-field" id="sort-field" [(ngModel)]="sortField">
+                    <option 
+                    *ngFor="let f of sortFields" 
+                    [value]="f">
+                    {{ utilService.capitalize(f) }}
+                    </option>
+                    </select>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="sort-direction">Sort Direction</label>
+                    <div>
+                        <button class="btn btn-primary" [ngClass]="{'btn-success': sortDirection == 'asc'}" (click)="sortDirection = 'asc'">
+                        Asc
+                        </button>
+
+                        <button class="btn btn-primary" [ngClass]="{'btn-success': sortDirection == 'desc'}" (click)="sortDirection = 'desc'">
+                        Desc
+                        </button>
+
+                    </div>
                 </div>
 
             </div>
         </div>
     </div>
 
-    <div *ngFor="let emp of emps | search: field">
-        <app-card [emp]="emp" class="col-sm-4"></app-card>
+    <div *ngFor="let emp of emps | search: field | sortby: [sortField, sortDirection]">
+        <app-card [emp]="emp" class="col-sm-3"></app-card>
     </div>
 
     <div class="alert alert-danger" *ngIf="error">{{ error }}</div>
