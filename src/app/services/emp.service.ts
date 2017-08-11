@@ -53,7 +53,7 @@ export class EmpService {
     return this.emps.remove(id);
   }
 
-  editCard(id, EMP) {
+  updateListing(id, EMP) {
     return this.emps.update(id, EMP);
   }
 

@@ -15,15 +15,5 @@ export class SearchPipe implements PipeTransform {
       })
     }
     return array;
-
-
-
-
-    // array.filter((a: any, b: any) => {
-    //   if (a[field] != b[field]) {
-    //     return 0;
-    //   }
-    // });
-
   }
 }

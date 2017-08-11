@@ -1,21 +1,15 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <a class="navbar-brand">Employee Management System</a>
-  </div>
-</nav>
-
 
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h4> Form </h4>
-  </div>
+    <h4> Edit Your Details </h4>
+</div>
 
   <div class="panel-body">
     <form #form="ngForm" (ngSubmit)="onUpdateSubmit(form.value)" novalidate>
       <div class="row">
         <div class="form-group col-sm-6 mid">
 
-          <input type="text" #nameRef="ngModel" minlength="3" required class="form-control" placeholder="Firstname" name="Firstname" ngModel>
+          <input type="text" #nameRef="ngModel" minlength="3" required class="form-control" placeholder="Firstname" name="Firstname" [(ngModel)]="Firstname">
 
           <div *ngIf="nameRef.errors && (nameRef.dirty || nameRef.touched)" class="alert alert-danger">
             <div [hidden]="!nameRef.errors.required">
@@ -31,7 +25,7 @@
 
         <div class="form-group col-sm-6 mid">
 
-          <input type="text" #lRef="ngModel" minlength="3" required class="form-control" placeholder="Lastname" name="Lastname" ngModel>
+          <input type="text" #lRef="ngModel" minlength="3" required class="form-control" placeholder="Lastname" name="Lastname" [(ngModel)]="Lastname">
 
           <div *ngIf="lRef.errors && (lRef.dirty || lRef.touched)" class="alert alert-danger">
             <div [hidden]="!lRef.errors.required">
@@ -47,7 +41,7 @@
       <div class="row">
         <div class="form-group col-sm-6 mid">
           <input type="text" #numRef="ngModel" minlength="11" maxlength="11" required class="form-control" placeholder="Phone Number"
-            name="PhoneNumber" ngModel>
+            name="PhoneNumber" [(ngModel)]="PhoneNumber">
 
           <div *ngIf="numRef.errors && (numRef.dirty || numRef.touched)" class="alert alert-danger">
             <div [hidden]="!numRef.errors.required">
@@ -64,7 +58,7 @@
       </div>
       <div class="row">
         <div class="form-group col-sm-6 mid">
-          <input type="text" #eRef="ngModel" minlength="5" required class="form-control" placeholder="Email" name="Email" ngModel>
+          <input type="text" #eRef="ngModel" minlength="5" required class="form-control" placeholder="Email" name="Email" [(ngModel)]="Email">
 
           <div *ngIf="eRef.errors && (eRef.dirty || eRef.touched)" class="alert alert-danger">
             <div [hidden]="!eRef.errors.required">
@@ -78,7 +72,7 @@
       </div>
       <div class="row">
         <div class="form-group col-sm-6 mid">
-          <input type="text" #tRef="ngModel" minlength="5" required class="form-control" placeholder="Title" name="Title" ngModel>
+          <input type="text" #tRef="ngModel" minlength="5" required class="form-control" placeholder="Title" name="Title" [(ngModel)]="Title">
 
           <div *ngIf="tRef.errors && (tRef.dirty || tRef.touched)" class="alert alert-danger">
             <div [hidden]="!tRef.errors.required">
@@ -123,6 +117,15 @@
         </button>
       </div>
 
+      <div class="form-group col-sm-12">
+        <button class="btn btn-sm btn-danger listing-button" [routerLink]="['/listings']">
+          Cancel
+        </button>
+      </div>
+      
+      
+        
+      
     </form>
 
   </div>

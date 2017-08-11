@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { EmpService } from './../services/emp.service';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router'
+
 declare var firebase: any;
 
 @Component({
@@ -12,7 +14,7 @@ export class FormComponent implements OnInit {
 
   @ViewChild('form') form: NgForm;
 
-  constructor(public empService: EmpService) { }
+  constructor(public empService: EmpService,  private router: Router) { }
 
   ngOnInit() {
   }
@@ -20,6 +22,7 @@ export class FormComponent implements OnInit {
   onEmpSubmit(data): void {
     this.empService.addEmp(data);
     this.form.reset();
+    this.router.navigate(['/listings']);
   }
 
   // fbPostData(data){

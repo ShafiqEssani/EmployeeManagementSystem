@@ -16,14 +16,15 @@ import { EmpService } from './services/emp.service';
 import { EditCardComponent } from './edit-card/edit-card.component';
 import { SortbyPipe } from './pipes/sortby.pipe';
 import { UtilService } from './services/util.service';
+import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
-  // {path: '', component: AppComponent},
- //{path: '', component: ListingComponent},
- 
-  // //{path: 'add-card', component: AddCardComponent},
-  // {path: 'card/:id', component: CardComponent},
-  {path: 'edit-card', component: EditCardComponent} 
+  
+  {path: '', component: HomeComponent},
+  {path: 'listings', component: ListingComponent},
+  {path: 'form', component: FormComponent},
+  {path: 'edit-card/:id', component: EditCardComponent} 
 ]
 
 @NgModule({
@@ -34,7 +35,9 @@ const appRoutes: Routes = [
     CardComponent,
     SearchPipe,
     EditCardComponent,
-    SortbyPipe
+    SortbyPipe,
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

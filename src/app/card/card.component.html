@@ -35,7 +35,7 @@
 
         <hr>
 
-        <button [id]="emp.$key" (click)="onEditClick($event)" class="btn btn-sm btn-success">
+         <button [routerLink]="['/edit-card/'+emp.$key]" [id]="emp.$key" class="btn btn-sm btn-success">
           Edit
         </button>
 
@@ -43,7 +43,7 @@
           Delete
         </button>
         
-        <button [routerLink]="['/']" class="btn btn-sm btn-danger" (click)="emp.showDetails = !emp.showDetails">
+        <button class="btn btn-sm btn-danger" (click)="emp.showDetails = !emp.showDetails">
           Close
         </button>
 

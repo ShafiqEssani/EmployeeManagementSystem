@@ -27,8 +27,6 @@ export class ListingComponent implements OnInit {
     'Dept'
   ];
   
-  //emps: any;
-
   constructor(
     //private http: Http,
     private empService: EmpService,
