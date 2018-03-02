@@ -20,11 +20,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
-  
-  {path: '', component: HomeComponent},
-  {path: 'listings', component: ListingComponent},
-  {path: 'form', component: FormComponent},
-  {path: 'edit-card/:id', component: EditCardComponent} 
+  { path: '', component: HomeComponent },
+  { path: 'listings', component: ListingComponent },
+  { path: 'form', component: FormComponent },
+  { path: 'edit-card/:id', component: EditCardComponent }
 ]
 
 @NgModule({
